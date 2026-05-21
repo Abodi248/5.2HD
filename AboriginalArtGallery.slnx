@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AboriginalArtGallery.API/AboriginalArtGallery.API.csproj" />
+  <Project Path="AboriginalArtGallery.Application/AboriginalArtGallery.Application.csproj" />
+  <Project Path="AboriginalArtGallery.Domain/AboriginalArtGallery.Domain.csproj" />
+  <Project Path="AboriginalArtGallery.Infrastructure/AboriginalArtGallery.Infrastructure.csproj" />
+  <Project Path="AboriginalArtGallery.Tests/AboriginalArtGallery.Tests.csproj" />
+</Solution>
