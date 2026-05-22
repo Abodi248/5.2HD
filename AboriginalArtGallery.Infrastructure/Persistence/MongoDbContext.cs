@@ -68,8 +68,7 @@ public static class MongoDbInitializer
             new CreateIndexOptions<BsonDocument>
             {
                 Name = "idx_artworks_year_created_partial",
-                PartialFilterExpression = Builders<BsonDocument>.Filter.Exists("year_created"),
-                Sparse = true
+                PartialFilterExpression = Builders<BsonDocument>.Filter.Exists("year_created")
             }));
 
         col.Indexes.CreateOne(new CreateIndexModel<BsonDocument>(
