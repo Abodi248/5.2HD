@@ -1,20 +1,55 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
 namespace AboriginalArtGallery.Domain.Artworks;
 
 public class Artwork
 {
+    [BsonId]
+    [BsonElement("_id")]
     public Guid Id { get; private set; }
+
+    [BsonElement("title")]
     public string Title { get; private set; } = null!;
+
+    [BsonElement("artist_id")]
     public Guid ArtistId { get; private set; }
+
+    [BsonElement("year_created")]
+    [BsonIgnoreIfNull]
     public int? YearCreated { get; private set; }
+
+    [BsonElement("medium")]
     public Medium ArtMedium { get; private set; } = null!;
+
+    [BsonElement("dimensions")]
     public Dimensions Size { get; private set; } = null!;
+
+    [BsonElement("art_type_id")]
+    [BsonIgnoreIfNull]
     public Guid? ArtTypeId { get; private set; }
+
+    [BsonElement("description")]
+    [BsonIgnoreIfNull]
     public string? Description { get; private set; }
+
+    [BsonElement("acquisition")]
     public AcquisitionInfo Acquisition { get; private set; } = null!;
+
+    [BsonElement("is_on_display")]
     public bool IsOnDisplay { get; private set; }
+
+    [BsonElement("image_url")]
+    [BsonIgnoreIfNull]
     public string? ImageUrl { get; private set; }
+
+    [BsonElement("is_active")]
     public bool IsActive { get; private set; }
+
+    [BsonElement("created_at")]
     public DateTimeOffset CreatedAt { get; private set; }
+
+    [BsonElement("updated_at")]
     public DateTimeOffset UpdatedAt { get; private set; }
 
     private Artwork() { }
