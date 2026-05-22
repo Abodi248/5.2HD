@@ -75,6 +75,7 @@ public class ArtworkService
             throw new KeyNotFoundException($"Artwork {id} not found.");
         }
         artwork.SetDisplayStatus(isOnDisplay);
+        await _repository.UpdateAsync(artwork);
         await _repository.SaveChangesAsync();
         _logger.LogInformation("Set display status of artwork {Id} to {Status}", id, isOnDisplay);
         return MapToDto(artwork);
