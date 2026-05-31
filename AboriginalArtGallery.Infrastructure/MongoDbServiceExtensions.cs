@@ -1,5 +1,7 @@
 using AboriginalArtGallery.Application.Artists;
+using AboriginalArtGallery.Application.ArtTypes;
 using AboriginalArtGallery.Application.Artworks;
+using AboriginalArtGallery.Application.Tribes;
 using AboriginalArtGallery.Infrastructure.Persistence;
 using AboriginalArtGallery.Infrastructure.Persistence.Serializers;
 using AboriginalArtGallery.Infrastructure.Repositories;
@@ -34,6 +36,8 @@ public static class MongoDbServiceExtensions
 
         services.AddSingleton<IArtistRepository, ArtistRepository>();
         services.AddSingleton<IArtworkRepository, ArtworkRepository>();
+        services.AddSingleton<ITribeRepository, TribeRepository>();
+        services.AddSingleton<IArtTypeRepository, ArtTypeRepository>();
 
         return services;
     }

@@ -90,6 +90,7 @@ public class ArtworkService
             throw new KeyNotFoundException($"Artwork {id} not found.");
         }
         artwork.Deactivate();
+        await _repository.UpdateAsync(artwork);
         await _repository.SaveChangesAsync();
         _logger.LogInformation("Deactivated artwork {Id}", id);
     }

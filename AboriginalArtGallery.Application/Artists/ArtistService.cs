@@ -93,6 +93,7 @@ public class ArtistService
             throw new KeyNotFoundException($"Artist {id} not found.");
         }
         artist.Deactivate();
+        await _repository.UpdateAsync(artist);
         await _repository.SaveChangesAsync();
         _logger.LogInformation("Deactivated artist {Id}", id);
     }

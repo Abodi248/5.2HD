@@ -1,6 +1,8 @@
 using System.Reflection;
 using AboriginalArtGallery.Application.Artists;
+using AboriginalArtGallery.Application.ArtTypes;
 using AboriginalArtGallery.Application.Artworks;
+using AboriginalArtGallery.Application.Tribes;
 using AboriginalArtGallery.Domain.Exceptions;
 using AboriginalArtGallery.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
@@ -12,6 +14,8 @@ builder.Services.AddMongoDb(builder.Configuration);
 
 builder.Services.AddScoped<ArtistService>();
 builder.Services.AddScoped<ArtworkService>();
+builder.Services.AddScoped<TribeService>();
+builder.Services.AddScoped<ArtTypeService>();
 
 builder.Services.AddControllers();
 
@@ -26,7 +30,7 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// Global exception middleware — must be first so all downstream exceptions are caught.
+// Global exception middleware - must be first so all downstream exceptions are caught.
 app.Use(async (context, next) =>
 {
     try
